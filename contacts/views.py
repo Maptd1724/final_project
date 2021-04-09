@@ -30,7 +30,7 @@ def contact(request):
         #     'Food menu order',
         #     'You have recieve message to your email for food order ' + contact.message + '. Sign into the admin panel for more info',
         #     '1234567890.gtest@gmail.com',
-        #     ['maryann.deutel@gmail.com'],
+        #     ['sentmessage@gmail.com'],
         #     fail_silently=False
            
         # )

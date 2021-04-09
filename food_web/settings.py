@@ -149,7 +149,7 @@ MESSAGE_TAGS = {
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_PORT = 587
 # EMAIL_HOST_USER = '1234567890.gtest@gmail.com'
-# EMAIL_HOST_PASSWORD = '0123456789test'
+# EMAIL_HOST_PASSWORD = 'my password'
 # EMAIL_USE_TLS=True
 
 
