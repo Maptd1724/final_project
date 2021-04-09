@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'accounts.css/all.css' %}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'accounts.css/bootstrap.css' %}">
+    <!-- Custom -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--Lightbox-->
+  
+    <title>Mary's Full Stack Kitchen {% block title %} {% endblock %}</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="{% static 'images/logo.jpg' %}" class="logo" alt="logo" height="80px" width="200px">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav">
+        <li
+            {% if '/' == request.path %}
+              class="nav-item mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+         >
+            <a class="nav-link" href="{% url 'index' %}">HOME</a>
+          </li>
+          <li
+          {% if 'about' == request.path %}
+            class="nav-item mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+       >
+          <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+        </li>
+        <li
+          {% if 'menu' == request.path %}
+            class="nav-item mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+       >
+          <a class="nav-link" href="{% url 'menu' %}">MENU</a>
+        </li>
+        <li
+          {% if 'services' == request.path %}
+            class="nav-item mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+       >
+          <a class="nav-link" href="{% url 'services' %}">SERVICES</a>
+        </li>
+        <li
+          {% if 'gallery' == request.path %}
+            class="nav-item mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+       >
+          <a class="nav-link" href="{% url 'gallery' %}">GALLERY</a>
+        </li>
+        </ul>
+      
+
+      <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+            <li 
+            {% if 'dashboard' in request.path %}
+              class="nav-item mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+          >
+                <a class="nav-link" href="{% url 'dashboard' %}"><i class="fas fa-door-open"></i>WELCOME {{ user.username }}</a>
+          </li>
+          <li class="nav-item mr-3">
+            <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+              <i class="fas fa-sign-out-alt"></i> LOGOUT
+            </a>
+            <form action="{% url 'logout' %}" method="POST" id="logout">
+              {% csrf_token %}
+              <input type="hidden">
+            </form>
+          </li>
+
+        {% else %}
+          <li 
+          {% if 'register' in request.path %}
+            class="nav-item active mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+        >
+              <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-user-plus"></i> REGISTER</a>
+        </li>
+        <li
+        {% if 'login' in request.path %}
+          class="nav-item active mr-3"
+        {% else %}
+          class="nav-item mr-3"
+        {% endif %}
+      >
+            <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>LOGIN</a>
+            
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+  {% block content %} {% endblock %}
+
+  <!-- Footer -->
+<section class="footer-container">
+  <div class="container">
+      <div class="row footer-containertent">
+          <div class="col-md-4">
+              <img class="logo" id="logo" src="{% static 'images/logo.png' %}" alt="logo" height="170px" width="250px">
+          </div>
+          <div class="col-md-4">
+              <h4>News & Updates</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, nam corporis quas, saepe minima error aperiam dolorum aliquam, quis deserunt eos eius quisquam odio itaque.</p>
+          </div>
+          <div class="col-md-4 contac-us">
+              <h4>Contact Us</h4>
+              <p>Lorem ipsum dolor sit amet adipisicing elit.</p>
+              <ul>
+                      <i class="fa fa-home"></i>Tel Aviv, Israel</li>
+                      <i class="fa fa-phone"></i>054-0000-536</li>
+                      <i class="fa fa-envelope-o"></i>maryann.deutel@gmail.com</li>
+                  </ul> 
+          </div>
+      </div>
+  </div>
+</section>
+
+  
+    <script src="{% static 'accounts.js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'accounts.js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'accounts.js/lightbox.min.js' %}"></script>
+    <script src="{% static 'accounts.js/main.js' %}"></script>
+</body>
+</html>

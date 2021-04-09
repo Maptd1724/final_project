@@ -1,0 +1,68 @@
+{% extends 'base_accounts.html' %}
+
+{% block title %} | Dashboard {% endblock %}
+
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1 class="display-4">User Dashboard</h1>
+        <p class="lead">You are now in Mary's Full Stack Kitchen Account</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{% url 'logout' %}">
+            <i class="fas fa-sign-out-alt"></i></i> Logout</a>
+        </li>
+        <li class="breadcrumb-item active"> Dashboard</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+{% include 'partials/_alerts.html' %}
+<section id="dashboard" class="py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Welcome {{ user.first_name }}</h2>
+        {% if contacts %}
+          <p>Here are the menu that you have ordered we will get back to you. Enjoy!</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Menu</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for contact in contacts %}
+              <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.message }}</td>
+                <td>
+                  <a class="btn btn-light" href="{% url 'contact' %}">Your Order</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <p>You haven't ordered go to the Menu and send me a message!</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

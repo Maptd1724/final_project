@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | Welcome {% endblock %}
+
+{% block content %}
+<section class="slider-pro slider" id="slider">
+    <div class="sp-slides">
+
+        <!-- Slides -->
+        <div class="sp-slide main-slides">
+            <div class="img-overlay"></div>
+            <a class="navbar-brand" href="{% url 'index' %}"></a>
+            <img class="sp-image" src="{% static 'images/slider/slider-1-img.jpg' %}" alt="Slider 1" height="100%" width="1005"/>
+
+            <h1 class="sp-layer slider-text-big"
+            data-position="center" data-show-transition="left" data-hide-transition="right" data-show-delay="1500" data-hide-delay="200">
+            <span class="highlight-texts">Welcome to Mary's Homemade Food</span>
+            </h1>
+
+            <p class="sp-layer"
+            data-position="center" data-vertical="15%" data-show-delay="2000" data-hide-delay="200" data-show-transition="left" data-hide-transition="right">
+                Lorem ipsum dolor sit amectetur adipici
+            </p>
+        </div>
+        <!-- Slides End -->
+
+        <!-- Slides -->
+        <div class="sp-slide main-slides">
+        <div class="img-overlay"></div>
+            <img class="sp-image" src="{% static 'images/slider/slider-2-img.jpg' %}" alt="Slider 2" height="100%" width="100%"/>
+
+            <h1 class="sp-layer slider-text-big"
+            data-position="center" data-show-transition="left" data-hide-transition="right" data-show-delay="1500" data-hide-delay="200">
+            <span class="highlight-texts">Clean and Fresh Ingredients</span>
+            </h1>
+
+            <p class="sp-layer"
+            data-position="center" data-vertical="15%" data-show-delay="2000" data-hide-delay="200" data-show-transition="left" data-hide-transition="right">
+                Lorem ipsum dolor sit ametectetur adipis
+            </p>
+        </div>
+        <!-- Slides End -->
+
+        <!-- Slides -->
+        <div class="sp-slide main-slides">
+            <div class="img-overlay"></div>
+
+            <img class="sp-image" src="{% static 'images/slider/slider-3-img.jpg' %}" alt="Slider 3" height="100%" width="100%"/>
+
+            <h1 class="sp-layer slider-text-big"
+            data-position="center" data-show-transition="left" data-hide-transition="right" data-show-delay="1500" data-hide-delay="200">
+            <span class="highlight-texts">Tasty and Savoury</span>
+            </h1>
+
+            <p class="sp-layer"
+            data-position="center" data-vertical="15%" data-show-delay="2000" data-hide-delay="200" data-show-transition="left" data-hide-transition="right">
+                Lorem ipsum dolor sit ansectetur adipis
+            </p>
+        </div>
+        <!-- Slides End -->
+
+    </div>
+</section>
+<!-- Main Slider End -->
+{% endblock %}

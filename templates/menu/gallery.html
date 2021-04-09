@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | Our Gallery {% endblock %}
+
+{% block content %}
+
+<section id="portfolio" class="bgSection portfolio-section">
+    <div class="container">
+        <div class="row">
+    <br>
+    <br>
+    <br>
+    <br>
+
+            <!-- Section Header -->
+            <div class="col-md-12 col-sm-12 col-xs-12 section-header wow fadeInDown">
+                <h2><span class="highlight-text">Gallery</span></h2>
+               
+                <p class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, nam corporis quas, saepe minima error aperiam dolorum aliquam, quis deserunt eos eius quisquam odio itaque.</p>
+            </div>
+            <!-- Section Header End -->
+           
+            
+
+        </div>
+    </div>
+
+
+   
+        <!-- Filter Button Start -->
+    
+        <div class="portfolio-works wow fadeIn" data-wow-duration="2s">
+
+            <!-- Filter Button Start -->
+            <div id="portfolio-filter" class="portfolio-filter-btn-group">
+          
+        
+                
+           <ul>
+            <a class="btn btn-success btn-sm active" href="{% url 'gallery' %}" class="selected" data-filter="*">ALL</a> 
+            <a class="btn btn-success btn-sm active" href="{% url 'gallery-filter' title='noodle' %}">NOODLES</a> 
+            <a class="btn btn-success btn-sm active" href="{% url 'gallery-filter' title='pizza' %}">PIZZA</a> 
+            <a class="btn btn-success btn-sm active" href="{% url 'gallery-filter' title='salad' %}">SALAD</a> 
+            <a class="btn btn-success btn-sm active" href="{% url 'gallery-filter' title='seafood' %}">SEAFOODS</a> 
+           </ul>
+        
+</div>
+</div>
+ 
+
+
+    
+
+
+
+
+    
+        <!-- Filter Button Start -->
+        
+    <!-- teams Slider -->
+    <div class="portfolio-items">
+
+        {% if photos %}
+            {% for gallery in photos %}
+            
+            <div class="item portfolio-item">
+                <img src="{{ gallery.photo.url }}" alt="">
+                
+                
+                <p>
+                    <i class="fas fa-envelope-open"></i> {{ gallery.title }}</p>
+                <p>
+                    <i class="card-text"></i> {{ gallery.description }}</p>
+                    <!--<a href="#" class="btn btn-primary">Message Me</a>-->
+            </div>
+        
+            {% endfor %}
+        {% else %}
+        <div class="col-md-12">
+            <p>No Gallery Available</p>
+        </div>
+        {% endif %}
+
+        </div> 
+   
+        
+</section>
+
+
+{% endblock %}

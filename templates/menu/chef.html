@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %} | Our Chefs {% endblock %}
+
+{% block content %}
+
+<section id="team" class="bgSection teams-section">
+    <div class="parallax-overlay"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+            <div class="teams-wrapper wow bounceIn">
+                <div class="container">
+                    <div class="row "></div>
+                        
+                <!-- Section Header -->
+                        <div class="col-md-12 col-sm-12 col-xs-12 section-header wow fadeInDown">
+                            <h2><span class="highlight-text-inverted">Your Chefs</span></h2>
+                           
+                            <p class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, nam corporis quas, saepe minima error aperiam dolorum aliquam, quis deserunt eos eius quisquam odio itaque.</p>
+                        </div>
+    
+                        <!-- teams Slider -->
+                        <div id="teams" class="owl-carousel teams">
+
+                    {% if chefs %}
+                        {% for chef in chefs %}
+                        
+                        <div class="teams-slides col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">
+                            <img src="{{ chef.photo.url }}" alt="">
+                            <h4>{{ chef.name }}</h4>
+                            <p class="text-success">
+                                <i class="fas fa-award text-success mb-3"></i> Chef</p>
+                                 <hr>
+                            <p>
+                                <i class="fas fa-phone"></i> {{ chef.phone }}</p>
+                            <p>
+                                <i class="fas fa-envelope-open"></i> {{ chef.email }}</p>
+                            <p>
+                                <i class="card-text"></i> {{ chef.description }}</p>
+                                <a href="{% url 'contact' %}" class="btn btn-primary">Message Me</a>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                    <div class="col-md-12">
+                        <p>No Chefs Available</p>
+                    </div>
+                    {% endif %}
+    
+                </div>   
+            </div>
+    </section> 
+
+{% endblock %}

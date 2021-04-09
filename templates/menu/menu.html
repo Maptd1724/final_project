@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %} | Browse Menu {% endblock %}
+
+{% block content %}
+
+<section class="menus style3" id="menuCard">
+    <div class="container"> 
+        <div class="row">
+    <br>
+    <br>
+    <br>
+    <br>
+<!-- Section Header -->
+    <div class="col-md-12 col-sm-12 col-xs-12 section-header wow fadeInDown">
+        <h2><span class="highlight-text">Menu Card</span></h2>
+       
+        <p class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, nam corporis quas, saepe minima error aperiam dolorum aliquam, quis deserunt eos eius quisquam odio itaque.</p>
+    </div>
+    <!-- Section Header End -->
+
+ <!-- Breadcrumb -->
+ <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'chefs' %}">
+              <i class="fas fa-home"></i> Press to Order</a>
+          </li>
+          <li class="breadcrumb-item active"> Browse Available Menu</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+    
+            <div class="menus-container"> 
+                    <!-- menu --> 
+                    <div class="menu row">
+                                       
+                        {% if menu %}
+                            {% for food in menu %}
+                                <div class="col-md-6 wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight;">
+                                    <div class="menu-column">
+                                    <div class="food">
+                                            <div class="food-desc">
+                                                <h6 class="food-name">{{ food.title }}</h6>
+                                                <div class="dots"></div>
+                                                <div class="food-price">
+                                                    <span>₪{{ food.price }}</span>
+                                                </div><!-- /food-price -->
+                                            </div><!-- /food-desc -->
+                                            <div class="food-details">
+                                                <span>{{ food.description }}</span>
+                                            </div><!-- /food-details -->
+                                        </div><!-- /food -->
+                                    </div> <!-- /menu-column -->
+                                    </div><!-- /col-md-6 -->
+                            
+                            {% endfor %}
+
+                        {% else %}
+                                <div class="col-md-12">
+                                    <p>No Menu Available</p>
+                                </div>
+                        {% endif %}
+                </div><!-- /row -->
+            </div><!-- /menu-carousel -->
+            </div><!-- /menus-container --> 
+    </div><!-- /container -->
+</section>
+{% endblock %}

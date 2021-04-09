@@ -1,0 +1,88 @@
+{% load static %}
+<!-- Navbar -->
+
+<div class="preloader">
+        <div class="status"></div>
+    </div>
+ 
+    <!-- Header End -->
+<header>
+<nav id="topNav" class="navbar navbar-default main-menu">
+  <div class="container">
+   <button class="navbar-toggler hidden-md-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+        ☰
+    </button> 
+       <a class="navbar-brand page-scroll" href="{% url 'index' %}"><img class="logo" id="logo" src="{% static 'images/logo.jpg' %}" alt="logo" height="80px" width="200px"></a>
+    <div class="collapse navbar-toggleable-sm" id="collapsingNavbar">
+      <ul class="nav navbar-nav">
+         <li
+            {% if '/' == request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+         >
+            <a class="nav-link" href="{% url 'index' %}">HOME</a>
+          </li>
+          <li 
+            {% if 'about' in request.path %}
+                class="nav-item active mr-3"
+            {% else %}
+                class="nav-item mr-3"
+            {% endif %}
+            >
+              <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+          </li>
+            <li
+            {% if 'menu' in request.path %}
+                class="nav-item mr-3"
+            {% else %}
+                class="nav-item mr-3"
+            {% endif %}
+            > 
+                <a class="nav-link" href="{% url 'menu' %}">MENU</a>
+         </li>
+         <li
+            {% if 'services' in request.path %}
+                class="nav-item  mr-3"
+            {% else %}
+                class="nav-item mr-3"
+            {% endif %}
+            > 
+                <a class="nav-link" href="{% url 'services' %}">SERVICES</a>
+         </li>
+          
+          <li
+              {% if 'gallery' in request.path %}
+                class="nav-item mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+            >
+                <a class="nav-link" href="{% url 'gallery' %}">GALLERY</a>
+          </li>
+          <li 
+              {% if 'register' in request.path %}
+                class="nav-item mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+            >
+                  <a class="nav-link" href="{% url 'register' %}">REGISTER</a>
+            </li>
+            <li
+              {% if 'login' in request.path %}
+                class="nav-item mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+            >
+                  <a class="nav-link" href="{% url 'login' %}">LOGIN</a>
+              </li>
+          </ul>
+                
+     </div>
+  </div>
+</nav>
+</header>
+<!-- Header End -->

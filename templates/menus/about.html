@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | About Us {% endblock %}
+
+{% block content %}
+<section id="about" class="about-sec section-wrapper description">
+    <div class="container">
+            <div class="row">
+                <br>
+                <br>
+                <br>
+                <br>
+              <div class="col-md-12 col-sm-12 col-xs-12 section-header wow fadeInDown">
+                    <h2><span class="highlight-text">About</span></h2>
+               
+                <p class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">Mary's full stack kitchen is made up of a combination of Filipino traditional and festive dishes and western fusion cooking. My ingredients are always fresh and hand picked with the scent of a real Ilocano tradition.</p>
+            </div>
+      
+
+            <div class="col-md-6 col-sm-6 col-xs-12 custom-sec-img wow fadeInDown">
+                <img src="{% static 'images/features.jpg' %}" alt="Custom Image">
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12 customized-text wow fadeInDown black-ed">
+            <p>The more I learn about nutrition the more I’ve come to realize that the most important factor for healthy eating is to avoid processed food and focus on using real ingredients.</p>
+                <div class="row"> 
+                    <div class="col-md-11">
+                        
+                        <p>Cooking at home gives you the opportunity to eat the foods you love exactly how you enjoy eating them. If you like your meat more well-done, or dishes less spicy, the recipe includes suggested modifications.</p>
+                    </div>
+                </div>
+                <div class="row"> 
+                    <div class="col-md-11">
+                        
+                        <p>Cookery is in essence a combination of art and science, the art is in how the food looks, smells, and tastes, the science comes from how the various ingredients react with each other, especially when exposed to heat.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="row"> 
+                    <div class="col-md-11">
+                        
+                        <p>Enjoy local homemade meals from the comfort of your own home.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock %} 
